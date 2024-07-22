@@ -1,0 +1,13 @@
+"""
+JWT Exceptions
+
+"""
+
+
+
+class JWTKeyError(Exception):
+    pass
+
+
+class JWTSecretError(Exception):
+    pass

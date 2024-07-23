@@ -3,6 +3,25 @@ from fastapi.responses import JSONResponse
 from fastcore.core.response import JSONBuildResponse
 
 class FastCoreExceptionHandlers:
+    """
+    Пример использования
+
+    ```py
+    from fastapi import FastAPI
+    from fastcore.http import FastCoreExceptionHandlers
+
+    api = FastAPI(
+        title='By Reques6e',
+        version='0.1.0',
+        redoc_url=None,
+        description='Example code'
+    )
+
+    FastCoreExceptionHandlers(api)
+
+    ```
+    """
+
     def __init__(self, app: FastAPI):
         self.app = app
         self.register_handlers()

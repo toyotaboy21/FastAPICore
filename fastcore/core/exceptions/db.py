@@ -18,3 +18,18 @@ class ElementNotFound(Exception):
 class DataBaseSTError(Exception):
     pass
 
+
+class SQLStructure(Exception):
+    pass
+
+
+class DBOperationalError(Exception):
+    pass
+
+
+class DBError(Exception):
+    pass
+
+
+class DBKeyError(Exception):
+    pass

@@ -30,7 +30,7 @@ class Db:
 
         **Пример использования:**
 
-        ```py
+        ```python
         class Item(BaseModel):
             name: str
             price: float

@@ -4,7 +4,7 @@ from fastcore.core.response import JSONBuildResponse
 
 class FastCoreExceptionHandlers:
     """
-    Пример использования
+    **Пример использования**
 
     ```py
     from fastapi import FastAPI

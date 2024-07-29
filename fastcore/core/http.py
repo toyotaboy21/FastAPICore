@@ -62,3 +62,12 @@ class FastCoreExceptionHandlers:
                     message="На сервере произошла ошибка"
                 ).json()
             )
+        
+        @self.app.exception_handler(400)
+        async def custom_500_handler(request: Request, exc):
+            return JSONResponse(
+                content=JSONBuildResponse(
+                    error=1,
+                    message="Не переданы нужные параметры"
+                ).json()
+            )

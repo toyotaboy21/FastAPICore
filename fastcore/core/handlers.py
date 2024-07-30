@@ -25,7 +25,7 @@ class FastCoreExceptionHandlers:
     def __init__(self, app: FastAPI):
         self.app = app
         self.register_handlers()
-
+        
     def register_handlers(self):
         @self.app.exception_handler(404)
         async def custom_404_handler(request: Request, exc):
@@ -36,6 +36,24 @@ class FastCoreExceptionHandlers:
                 ).json()
             )
 
+        @self.app.exception_handler(400)
+        async def custom_500_handler(request: Request, exc):
+            return JSONResponse(
+                content=JSONBuildResponse(
+                    error=1,
+                    message="Неверный запрос"
+                ).json()
+            )
+
+        @self.app.exception_handler(401)
+        async def custom_401_handler(request: Request, exc):
+            return JSONResponse(
+                content=JSONBuildResponse(
+                    error=1,
+                    message="Требуется авторизация"
+                ).json()
+            )
+        
         @self.app.exception_handler(403)
         async def custom_403_handler(request: Request, exc):
             return JSONResponse(
@@ -45,15 +63,6 @@ class FastCoreExceptionHandlers:
                 ).json()
             )
         
-        @self.app.exception_handler(401)
-        async def custom_401_handler(request: Request, exc):
-            return JSONResponse(
-                content=JSONBuildResponse(
-                    error=1,
-                    message="Требуется авторизация"
-                ).json()
-            )
-
         @self.app.exception_handler(500)
         async def custom_500_handler(request: Request, exc):
             return JSONResponse(
@@ -63,11 +72,4 @@ class FastCoreExceptionHandlers:
                 ).json()
             )
         
-        @self.app.exception_handler(400)
-        async def custom_500_handler(request: Request, exc):
-            return JSONResponse(
-                content=JSONBuildResponse(
-                    error=1,
-                    message="Не переданы нужные параметры"
-                ).json()
-            )
+        # TODO: Добавлю стоп коды по RESTful API

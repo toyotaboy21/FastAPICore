@@ -24,7 +24,10 @@ class Db:
     def __init__(self, path: str, structure: Type) -> None:
         self.path = path
 
-    async def table_create(self, model: Type[BaseModel]):
+    async def table_create(
+        self, 
+        model: Type[BaseModel]
+    ) -> bool:
         """
         Создание таблицы
 
@@ -58,7 +61,11 @@ class Db:
 
             return True
 
-    async def element_create(self, table: Type[BaseModel], data: BaseModel) -> None:
+    async def element_create(
+        self, 
+        table: Type[BaseModel], 
+        data: BaseModel
+    ) -> bool:
         """
         Создание элемента в таблице
 
@@ -82,11 +89,12 @@ class Db:
             async with aiosqlite.connect(self.path) as db:
                 await db.execute(sql_query, values)
                 await db.commit()
+
+                return True
         except sqlite3.OperationalError as e:
             raise DBOperationalError(f'В процессе работы операции базы данных произошла ошибка: {e}')
         except Exception as e:
             DBError(f'Неизвестная ошибка {e}')
-        return True
 
     async def element_update(self, table: Type[BaseModel], data: BaseModel, key: str) -> None:
         table_name = table.__name__.lower()
@@ -107,25 +115,9 @@ class Db:
             async with aiosqlite.connect(self.path) as db:
                 await db.execute(sql_query, values)
                 await db.commit()
+
+                return True
         except sqlite3.OperationalError as e:
             raise DBOperationalError(f'В процессе работы операции базы данных произошла ошибка: {e}')
         except Exception as e:
             raise DBError(f'Неизвестная ошибка: {e}')
-        return True
-    
-
-    class User:
-        def __init__(self, model: Type) -> None:
-            self.model = model
-
-        async def create() -> None:
-            """ Создание пользователя"""
-            ...
-
-        async def edit() -> None:
-            """ Изменение пользователя"""
-            ...
-
-        async def delete() -> None:
-            """ Удаление пользователя"""
-            ...

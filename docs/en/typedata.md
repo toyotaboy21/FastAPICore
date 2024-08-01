@@ -1,7 +1,7 @@
 # TypeData (Типизиация)
 
-Создал для SQL запросов, т.к некоторых типов данных которые есть
-в SQL нету в Python, к примеру, BIGINTEGER.
+I created it for SQL queries, because some data types that exist in SQL are not available in Python.
+in SQL are not available in Python, for example, BIGINTEGER.
 
 ```python
 from fastcore.core.typedata import (
@@ -9,7 +9,7 @@ from fastcore.core.typedata import (
 )
 ```
 
-К примеру, представим, что у нас есть структура базы данных `User`:
+For example, let's imagine that we have a `User` database structure:
 ```python
 class User(BaseModel):
     name: Str
@@ -18,4 +18,4 @@ class User(BaseModel):
     big_number: BigInt
 ```
 
-Особо ничего не изменилось, посмотреть актуальные типы данных можно посмотреть в файле `fastcore.core.typedata`
+Nothing much has changed, you can see the actual data types in the `fastcore.core.typedata` file

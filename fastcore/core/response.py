@@ -1,3 +1,6 @@
+from fastapi.responses import JSONResponse
+
+
 class JSONBuildResponse:
 
     """
@@ -9,10 +12,12 @@ class JSONBuildResponse:
     Разберём пример использования.
     ```py
 
-    JSONBuildResponse(
-        error=0,
-        message='Всё ок'
-    )
+    @app.get('/')
+    async def info():
+        return JSONBuildResponse(
+            error=0,
+            message=f'Информация'
+        )
     ```
 
     В этом случае, error, это статус код задачи, 0 всё окей, ошибок в процессе выполнения задачи небыло, 1, ошибка процессе выполнения задачи.
@@ -32,8 +37,10 @@ class JSONBuildResponse:
     def json(
         self
     ):
-        return {
-            "error": self.error,
-            "message": self.message,
-            "data": self.data
-        }
+        return JSONResponse(
+            content={
+                "error": self.error,
+                "message": self.message,
+                "data": self.data
+            }
+        )

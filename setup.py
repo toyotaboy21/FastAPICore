@@ -5,7 +5,7 @@ with open('requirements.txt') as f:
 
 setup(
     name="fastcore",
-    version="0.0.1 Alpha 1",
+    version="0.0.1",
     packages=find_packages(),
     install_requires=install_requires,
     author="Reques6e",

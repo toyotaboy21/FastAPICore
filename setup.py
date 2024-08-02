@@ -13,7 +13,7 @@ setup(
     description="FastCore",
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/my_python_package",
+    url="https://github.com/reques6e/FastAPICore",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

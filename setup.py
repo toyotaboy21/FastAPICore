@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="fastcore",
+    name="fastapicore",
     version="0.0.1",
     packages=find_packages(),
     install_requires=['pyjwt==2.7.0', 'fastapi>=0.110.0', 'aiohttp>=3.8.6'],

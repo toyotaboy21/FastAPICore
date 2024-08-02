@@ -1,13 +1,10 @@
 from setuptools import setup, find_packages
 
-with open('requirements.txt') as f:
-    install_requires = f.read().splitlines()
-
 setup(
     name="fastcore",
     version="0.0.1",
     packages=find_packages(),
-    install_requires=install_requires,
+    install_requires=['pyjwt==2.7.0', 'fastapi>=0.110.0', 'aiohttp>=3.8.6'],
     author="Reques6e",
     author_email="lygitormaa@gmail.com",
     description="FastCore",

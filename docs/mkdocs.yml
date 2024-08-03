@@ -1,0 +1,16 @@
+site_name: FastAPICore
+site_url: https://reques6e.github.io/FastAPICore
+site_author: Astamur Ladariya
+
+# Repository
+repo_name: FastAPICore
+repo_url: https://github.com/reques6e/FastAPICore
+edit_uri: edit/master/docs
+docs_dir: docs
+
+plugins:
+    - awesome-pages
+    - search
+
+theme:
+  name: readthedocs
